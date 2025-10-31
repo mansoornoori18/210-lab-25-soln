@@ -15,13 +15,13 @@ const int W1 = 10;
 const int Runs = 15;   // for number of times to repeat run 1
 
 int main() {
-    // 3D 
+    // 3D arrays to store execution times 
     long long results[Runs][ROWS][COLS] = {0};
     string cd;
 
-    vector<string> data_vector;
-    list<string> data_list;
-    set<string> data_set;
+    vector<string> data_vector; // dynamic Array
+    list<string> data_list;     // Linked list 
+    set<string> data_set;       // unique sorted item
     
     // outer loop to go through each operation 
     for (int run = 0; run < Runs; run++){
@@ -165,10 +165,10 @@ int main() {
     }
     cout << "Run #" << (run+1) << " Completed" << endl;
     }
-    // for average
+    // store average time for each operation 
     long long averages[ROWS][COLS] = {0};
 
-    // the sum of the all runs 
+    // to sum rusult of all runs 
     for (int run = 0; run < Runs ; ++run){
         for ( int op = 0; op < ROWS ; ++op){
             for(int st = 0; st < COLS; ++st){
@@ -182,7 +182,7 @@ int main() {
             averages[op][st] /= Runs;
         }
     }
-
+    // to print the average time result.
     string labels[] = {"Read", "Sort", "Insert", "Delete"};
     cout << "Numbers of simulation : " << Runs << endl;
     cout << setw(W1) << "Operation" << setw(W1) << "Vector" << setw(W1) << "List"
@@ -193,8 +193,6 @@ int main() {
             cout << setw(W1) << averages[op][st];
         cout << endl;
     }
-    cout << "The simulation Experiment of Average is completed" << endl;
     
-
     return 0;
 }

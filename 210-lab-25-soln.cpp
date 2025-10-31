@@ -12,7 +12,7 @@ using namespace std;
 const int STRUCTURES = 3;
 const int ROWS = 4, COLS = 3;
 const int W1 = 10;
-const int Runs = 15;   // for number of times to repeat run
+const int Runs = 15;   // for number of times to repeat run 1
 
 int main() {
     int results[Runs][ROWS][COLS] = {0};
@@ -20,6 +20,10 @@ int main() {
     vector<string> data_vector;
     list<string> data_list;
     set<string> data_set;
+    
+    // outer loop to go through each operation 2
+    for (int run = 0; run < Runs; run++){
+        cout << "startng run " << (run+1) << endl;
 
     // testing for READ operations
     for (int i = 0; i < STRUCTURES; i++) {
@@ -133,26 +137,26 @@ int main() {
                 data_vector.erase(remove(data_vector.begin(), data_vector.end(), target_v));
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[3][i] = duration.count();
+                results[Runs][3][i] = duration.count();
                 break;
             }
             case 1: {  // delete by value from list
                 data_list.remove(target_l);
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[3][i] = duration.count();
+                results[Runs][3][i] = duration.count();
                 break;
             }
             case 2: {  // delete by value from set
                 data_set.erase(target_s);    
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[3][i] = duration.count();
+                results[Runs][3][i] = duration.count();
                 break;
             }
         }
     }
-
+    }
     string labels[] = {"Read", "Sort", "Insert", "Delete"};
     cout << setw(W1) << "Operation" << setw(W1) << "Vector" << setw(W1) << "List"
          << setw(W1) << "Set" << endl;

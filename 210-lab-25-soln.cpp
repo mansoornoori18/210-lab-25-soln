@@ -163,7 +163,16 @@ int main() {
     cout << "Run #" << (run+1) << " Completed" << endl;
     }
     // for average
-    int averages[ROWS][COLS];
+    int averages[ROWS][COLS] = {0};
+
+    // the sum of the all runs 
+    for (int run = 0; run < Runs ; ++run){
+        for ( int op = 0; op < Runs ; ++op){
+            for(int vls = 0; vls < Runs; ++vls){
+                averages[op][vls] += results
+            }
+        }
+    }
 
 
     string labels[] = {"Read", "Sort", "Insert", "Delete"};

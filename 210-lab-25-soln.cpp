@@ -184,14 +184,16 @@ int main() {
 
 
     string labels[] = {"Read", "Sort", "Insert", "Delete"};
+    cout << "Numbers of simulation : " << Runs << endl;
     cout << setw(W1) << "Operation" << setw(W1) << "Vector" << setw(W1) << "List"
          << setw(W1) << "Set" << endl;
-    for (int i = 0; i < 4; i++) {
-        cout << setw(W1) << labels[i];
-        for (int j = 0; j < COLS; j++) 
-            cout << setw(W1) << results[i][j];
+    for (int op = 0; op < ROWS; ++op) {
+        cout << setw(W1) << labels[op];
+        for (int st = 0; st < COLS; ++st) 
+            cout << setw(W1) << averages[op][st];
         cout << endl;
     }
+    cout << "The simulation Experiment of Average is completed" << endl;
     
 
     return 0;

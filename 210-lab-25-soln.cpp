@@ -15,19 +15,22 @@ const int W1 = 10;
 const int Runs = 15;   // for number of times to repeat run 1
 
 int main() {
+    // 3D 
     long long results[Runs][ROWS][COLS] = {0};
     string cd;
+
     vector<string> data_vector;
     list<string> data_list;
     set<string> data_set;
     
-    // outer loop to go through each operation 2
+    // outer loop to go through each operation 
     for (int run = 0; run < Runs; run++){
         cout << "startng run #" << (run+1) << endl;
 
         data_vector.clear();
         data_list.clear();
         data_set.clear();
+        
 
     // testing for READ operations
     for (int i = 0; i < STRUCTURES; i++) {

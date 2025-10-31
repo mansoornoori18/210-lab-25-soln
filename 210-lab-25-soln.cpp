@@ -167,14 +167,18 @@ int main() {
 
     // the sum of the all runs 
     for (int run = 0; run < Runs ; ++run){
-        for ( int op = 0; op < Runs ; ++op){
-            for(int st = 0; st < Runs; ++st){
+        for ( int op = 0; op < ROWS ; ++op){
+            for(int st = 0; st < COLS; ++st){
                 averages[op][st] += results[run][op][st];
             }
         }
     }
-    //DIvide by 3 to get ther average
-    
+    //DIvide by Runs to get the average
+    for (int op = 0; op < ROWS ; ++op){
+        for (int st = 0; st < COLS ; ++st){
+            averages[op][st] /= Runs;
+        }
+    }
 
 
 

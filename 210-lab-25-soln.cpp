@@ -15,7 +15,7 @@ const int W1 = 10;
 const int Runs = 15;   // for number of times to repeat run 1
 
 int main() {
-    int results[Runs][ROWS][COLS] = {0};
+    long long results[Runs][ROWS][COLS] = {0};
     string cd;
     vector<string> data_vector;
     list<string> data_list;
@@ -163,16 +163,20 @@ int main() {
     cout << "Run #" << (run+1) << " Completed" << endl;
     }
     // for average
-    int averages[ROWS][COLS] = {0};
+    long long averages[ROWS][COLS] = {0};
 
     // the sum of the all runs 
     for (int run = 0; run < Runs ; ++run){
         for ( int op = 0; op < Runs ; ++op){
-            for(int vls = 0; vls < Runs; ++vls){
-                averages[op][vls] += results
+            for(int st = 0; st < Runs; ++st){
+                averages[op][st] += results[run][op][st];
             }
         }
     }
+    //DIvide by 3 to get ther average
+    
+
+
 
 
     string labels[] = {"Read", "Sort", "Insert", "Delete"};

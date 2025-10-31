@@ -25,6 +25,10 @@ int main() {
     for (int run = 0; run < Runs; run++){
         cout << "startng run #" << (run+1) << endl;
 
+        data_vector.clear();
+        data_list.clear();
+        data_set.clear();
+
     // testing for READ operations
     for (int i = 0; i < STRUCTURES; i++) {
         ifstream fin("codes.txt");
@@ -158,6 +162,10 @@ int main() {
     }
     cout << "Run #" << (run+1) << " Completed" << endl;
     }
+    // for average
+    int averages[ROWS][COLS];
+
+
     string labels[] = {"Read", "Sort", "Insert", "Delete"};
     cout << setw(W1) << "Operation" << setw(W1) << "Vector" << setw(W1) << "List"
          << setw(W1) << "Set" << endl;

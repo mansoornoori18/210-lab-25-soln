@@ -30,7 +30,7 @@ int main() {
         data_vector.clear();
         data_list.clear();
         data_set.clear();
-        
+
 
     // testing for READ operations
     for (int i = 0; i < STRUCTURES; i++) {
@@ -141,7 +141,7 @@ int main() {
         auto start = chrono::high_resolution_clock::now();
         switch(i) {
             case 0: {  // delete by value from vector
-                data_vector.erase(remove(data_vector.begin(), data_vector.end(), target_v));
+                data_vector.erase(remove(data_vector.begin(), data_vector.end(), target_v),data_vector.end());
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
                 results[run][3][i] = duration.count();
@@ -182,9 +182,6 @@ int main() {
             averages[op][st] /= Runs;
         }
     }
-
-
-
 
     string labels[] = {"Read", "Sort", "Insert", "Delete"};
     cout << "Numbers of simulation : " << Runs << endl;

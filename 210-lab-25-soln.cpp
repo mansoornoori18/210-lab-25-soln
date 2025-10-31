@@ -1,5 +1,5 @@
-#include <iostream>
-#include <fstream>
+#include <iostream>  //
+#include <fstream>   //
 #include <chrono>
 #include <vector>
 #include <algorithm>
@@ -23,7 +23,7 @@ int main() {
     
     // outer loop to go through each operation 2
     for (int run = 0; run < Runs; run++){
-        cout << "startng run " << (run+1) << endl;
+        cout << "startng run #" << (run+1) << endl;
 
     // testing for READ operations
     for (int i = 0; i < STRUCTURES; i++) {
@@ -156,6 +156,7 @@ int main() {
             }
         }
     }
+    cout << "Run #" << (run+1) << " Completed" << endl;
     }
     string labels[] = {"Read", "Sort", "Insert", "Delete"};
     cout << setw(W1) << "Operation" << setw(W1) << "Vector" << setw(W1) << "List"

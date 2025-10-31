@@ -39,7 +39,7 @@ int main() {
                         data_vector.push_back(cd);
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][0][i] = duration.count();
+                results[run][0][i] = duration.count();
                 break;
             }
             case 1: {  // read into a list
@@ -47,7 +47,7 @@ int main() {
                         data_list.push_back(cd);
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][0][i] = duration.count();
+                results[run][0][i] = duration.count();
                 break;
             }
             case 2: {  // read into a set
@@ -55,7 +55,7 @@ int main() {
                         data_set.insert(cd);
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][0][i] = duration.count();
+                results[run][0][i] = duration.count();
                 break;
             }
         }
@@ -70,18 +70,18 @@ int main() {
                 sort(data_vector.begin(), data_vector.end());
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][1][i] = duration.count();
+                results[run][1][i] = duration.count();
                 break;
             }
             case 1: {  // sort a list
                 data_list.sort();
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][1][i] = duration.count();
+                results[run][1][i] = duration.count();
                 break;
             }
             case 2: {  // can't sort a set, so set to -1
-                results[Runs][1][i] = -1;
+                results[run][1][i] = -1;
                 break;
             }
         }
@@ -97,7 +97,7 @@ int main() {
                 data_vector.insert(data_vector.begin() + ind_v, "TESTCODE");
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][2][i] = duration.count();
+                results[run][2][i] = duration.count();
                 break;
             }
             case 1: {  // insert into a list
@@ -106,14 +106,14 @@ int main() {
                 data_list.insert(it, "TESTCODE");
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][2][i] = duration.count();
+                results[run][2][i] = duration.count();
                 break;
             }
             case 2: {  // insert into a set
                 data_set.insert("TESTCODE");
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][2][i] = duration.count();
+                results[run][2][i] = duration.count();
                 break;
             }
         }
@@ -141,21 +141,21 @@ int main() {
                 data_vector.erase(remove(data_vector.begin(), data_vector.end(), target_v));
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][3][i] = duration.count();
+                results[run][3][i] = duration.count();
                 break;
             }
             case 1: {  // delete by value from list
                 data_list.remove(target_l);
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][3][i] = duration.count();
+                results[run][3][i] = duration.count();
                 break;
             }
             case 2: {  // delete by value from set
                 data_set.erase(target_s);    
                 auto end = chrono::high_resolution_clock::now();
                 auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-                results[Runs][3][i] = duration.count();
+                results[run][3][i] = duration.count();
                 break;
             }
         }
